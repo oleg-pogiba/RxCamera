@@ -1,9 +1,7 @@
 # RxCamera
 
-![](https://travis-ci.org/ragnraok/RxCamera.svg?branch=master)
-
 RxJava style camera API for android, it based on [android.hardware.camera](http://developer.android.com/intl/es/reference/android/hardware/Camera.html)
-
+This is fork from https://github.com/lucas34/RxCamera
 ----
 
 Add to your project dependence:
@@ -11,9 +9,10 @@ Add to your project dependence:
 ```groovy
 repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
 }
 dependencies {
-	compile 'com.ragnarok.rxcamera:lib:0.0.5'
+	compile "com.github.oleg-pogiba:RxCamera:rx2-SNAPSHOT"
 }
 ```
 
