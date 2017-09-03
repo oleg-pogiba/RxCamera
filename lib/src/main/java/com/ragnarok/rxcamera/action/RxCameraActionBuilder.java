@@ -86,7 +86,12 @@ public class RxCameraActionBuilder {
                     return;
                 }
                 if (isOn) {
-                    if (parameters.getSupportedFlashModes().contains(Camera.Parameters.FLASH_MODE_TORCH)) {
+                    if (parameters.getSupportedFlashModes().contains(Camera.Parameters.FLASH_MODE_AUTO)) {
+                        parameters.setFlashMode(Camera.Parameters.FLASH_MODE_AUTO);
+                        rxCamera.getNativeCamera().setParameters(parameters);
+                        subscriber.onNext(rxCamera);
+                        return;
+                    } else if (parameters.getSupportedFlashModes().contains(Camera.Parameters.FLASH_MODE_TORCH)) {
                         parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                         rxCamera.getNativeCamera().setParameters(parameters);
                         subscriber.onNext(rxCamera);
