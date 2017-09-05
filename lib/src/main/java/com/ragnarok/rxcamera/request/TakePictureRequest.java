@@ -73,7 +73,10 @@ public class TakePictureRequest extends BaseRxCameraRequest {
 
                     if (openFlash) {
                         if (param.getSupportedFlashModes() != null &&
-                                param.getSupportedFlashModes().contains(Camera.Parameters.FLASH_MODE_ON)) {
+                            param.getSupportedFlashModes().contains(Camera.Parameters.FLASH_MODE_AUTO)) {
+                            param.setFlashMode(Camera.Parameters.FLASH_MODE_AUTO);
+                        } else if (param.getSupportedFlashModes() != null &&
+                            param.getSupportedFlashModes().contains(Camera.Parameters.FLASH_MODE_ON)) {
                             param.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
                         }
                     }
