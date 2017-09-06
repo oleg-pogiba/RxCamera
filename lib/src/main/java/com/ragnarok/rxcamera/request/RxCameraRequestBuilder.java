@@ -81,6 +81,20 @@ public class RxCameraRequestBuilder {
         return new TakePictureRequest(rxCamera, shutterAction, isContinuePreview, width, height, format, openFlash).get();
     }
 
+    /**
+     * take picture request with specific size and picture format, after call, will stop camera preview just like {@code Camera.takePicture}
+     * @param isContinuePreview if continue preview after picture is captured
+     * @param shutterAction
+     * @param width
+     * @param height
+     * @param format the final format of the picture, must be one of <var>ImageFormat.NV21</var>, <var>ImageFormat.RGB_565</var>, or <var>ImageFormat.JPEG</var>, the default is JPG
+     * @param openFlash will open the flash when taking picture if set to true
+     * @param flashMode will set the flash mode when taking picture
+     * @return
+     */
+    public Observable<RxCameraData> takePictureRequest(boolean isContinuePreview, Func shutterAction, int width, int height, int format, boolean openFlash, String flashMode) {
+        return new TakePictureRequest(rxCamera, shutterAction, isContinuePreview, width, height, format, openFlash, flashMode).get();
+    }
 
     /**
      * the face detection request, after set this, the returned {@link RxCameraData#faceList} will contain the
